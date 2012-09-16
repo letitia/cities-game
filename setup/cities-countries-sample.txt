@@ -1,0 +1,598 @@
+Herat,Afghanistan
+Kabul,Afghanistan
+Mazar-e Sharif,Afghanistan
+Korce,Albania
+Tirane,Albania
+Algiers,Algeria
+Skikda,Algeria
+Oran,Algeria
+Ouled Djellal,Algeria
+Mascara,Algeria
+Annaba,Algeria
+Pago Pago,American Samoa
+Andorra La Vella,Andorra
+Escaldes,Andorra
+Benguela,Angola
+Sumbe,Angola
+Lubango,Angola
+Luanda,Angola
+Luanda,Angola
+The Valley,Anguilla
+Molodesjnaja,Antarctica
+Reading,Antarctica
+McMurdo Station,Antarctica
+Saint Johns,Antigua and Barbuda
+Falmouth,Antigua and Barbuda
+Bahia Blanca,Argentina
+Berazategui,Argentina
+Caseros,Argentina
+Castelar,Argentina
+Chacabuco,Argentina
+Ezeiza,Argentina
+Haedo,Argentina
+Jose Leon Suarez,Argentina
+La Plata,Argentina
+Lomas De Zamora,Argentina
+Mar del Plata,Argentina
+Miramar,Argentina
+Pinamar,Argentina
+Ramos Mejia,Argentina
+Salto,Argentina
+San Clemente del Tuyu,Argentina
+San Isidro,Argentina
+San Martin,Argentina
+Tres Arroyos,Argentina
+Turdera,Argentina
+Puerto Madryn,Argentina
+Trelew,Argentina
+Cordoba,Argentina
+Marcos Juárez,Argentina
+Rio Tercero,Argentina
+Villa María,Argentina
+Corrientes,Argentina
+Paso de los Libres,Argentina
+Buenos Aires,Argentina
+Concordia,Argentina
+Crespo,Argentina
+Gualeguaychu,Argentina
+Parana,Argentina
+San Rafael,Argentina
+Santa Rosa,Argentina
+Luján de Cuyo,Argentina
+Malargüe,Argentina
+Mendoza,Argentina
+Cipolletti,Argentina
+Neuquen,Argentina
+Bariloche,Argentina
+General Roca,Argentina
+Resistencia,Argentina
+Salta,Argentina
+San Juan,Argentina
+Rio Cuarto,Argentina
+Ceres,Argentina
+Reconquista,Argentina
+Rosario,Argentina
+Santa Fe,Argentina
+Suardi,Argentina
+Santiago del Estero,Argentina
+Ushuaia,Argentina
+San Miguel de Tucuman,Argentina
+Vanadzor,Armenia
+Gyumri,Armenia
+Spitak,Armenia
+Yerevan,Armenia
+Oranjestad,Aruba
+Ascot Vale,Australia
+Bacchus Marsh,Australia
+Bairnsdale,Australia
+Ballarat,Australia
+Bayswater,Australia
+Bendigo,Australia
+Berwick,Australia
+Boolarra,Australia
+Bright,Australia
+Cape Otway,Australia
+Castlemaine,Australia
+Chelsea,Australia
+Cheltenham,Australia
+Cobram,Australia
+Dandenong,Australia
+Deer Park,Australia
+Diamond Creek,Australia
+Echuca,Australia
+Eltham,Australia
+Frankston,Australia
+Geelong,Australia
+Hamilton,Australia
+Hawthorn,Australia
+Horsham,Australia
+Hurstbridge,Australia
+Maryborough,Australia
+Melbourne,Australia
+Mildura,Australia
+Moe,Australia
+Mooroolbark,Australia
+Mornington,Australia
+Morwell,Australia
+Narre Warren,Australia
+Newstead,Australia
+Noble Park,Australia
+Northcote,Australia
+Nunawading,Australia
+Portland,Australia
+Prahran,Australia
+Preston,Australia
+Red Cliffs,Australia
+Sale,Australia
+Shepparton,Australia
+Sorrento,Australia
+South Yarra,Australia
+Sunbury,Australia
+Sunshine,Australia
+Swan Hill,Australia
+Traralgon,Australia
+Wangaratta,Australia
+Warrnambool,Australia
+Wilsons Promontory,Australia
+Wodonga,Australia
+Burnie,Australia
+Campbell Town,Australia
+Claremont,Australia
+Devonport,Australia
+George Town,Australia
+Glenorchy,Australia
+Hobart,Australia
+Launceston,Australia
+Penguin,Australia
+Strahan,Australia
+Wynyard,Australia
+Zeehan,Australia
+Birdsville,Australia
+Blue Mountain,Australia
+Boulia,Australia
+Bowen,Australia
+Brisbane,Australia
+Bundaberg,Australia
+Burpengary,Australia
+Caboolture,Australia
+Cairns,Australia
+Caloundra,Australia
+Charleville,Australia
+Cooktown,Australia
+Croydon,Australia
+Cunnamulla,Australia
+Emerald,Australia
+Gladstone,Australia
+Gold Coast,Australia
+Goondiwindi,Australia
+Griffin,Australia
+Gympie,Australia
+Ingham,Australia
+Ipswich,Australia
+Kingaroy,Australia
+Longreach,Australia
+Mackay,Australia
+Maleny,Australia
+Manly,Australia
+Maroochydore,Australia
+Maryborough,Australia
+Mount Isa,Australia
+Nambour,Australia
+Noosa,Australia
+Redcliffe,Australia
+Richmond,Australia
+Rockhampton,Australia
+Roma,Australia
+Southport,Australia
+Stanthorpe,Australia
+Toowoomba,Australia
+Torquay,Australia
+Townsville,Australia
+Windorah,Australia
+Woombye,Australia
+Albury,Australia
+Armidale,Australia
+Ballina,Australia
+Bankstown,Australia
+Batemans Bay,Australia
+Bathurst,Australia
+Bega,Australia
+Blacktown,Australia
+Bombala,Australia
+Bondi,Australia
+Bourke,Australia
+Bowral,Australia
+Broken Hill,Australia
+Burwood,Australia
+Byron Bay,Australia
+Camden,Australia
+Campbelltown,Australia
+Cessnock,Australia
+Cobar,Australia
+Coffs Harbour,Australia
+Cooma,Australia
+Cootamundra,Australia
+Dubbo,Australia
+Dural,Australia
+Fairlight,Australia
+Gosford,Australia
+Goulburn,Australia
+Grafton,Australia
+Griffith,Australia
+Hurstville,Australia
+Inverell,Australia
+Katoomba,Australia
+Kempsey,Australia
+Lake Haven,Australia
+Lidcombe,Australia
+Lightning Ridge,Australia
+Lismore,Australia
+Lithgow,Australia
+Liverpool,Australia
+Maitland,Australia
+Mona Vale,Australia
+Mudgee,Australia
+Mungindi,Australia
+Murwillumbah,Australia
+Narrabri,Australia
+Nelson Bay,Australia
+Newcastle,Australia
+Nowra,Australia
+Oberon,Australia
+Orange,Australia
+Padstow,Australia
+Parramatta,Australia
+Penrith,Australia
+Port Macquarie,Australia
+Pyrmont,Australia
+Queanbeyan,Australia
+Richmond,Australia
+Rosebery,Australia
+Springwood,Australia
+Srtoud,Australia
+Surry Hills,Australia
+Sutherland,Australia
+Sydney,Australia
+Tamworth,Australia
+Tingha,Australia
+Tweed Heads,Australia
+Ulladulla,Australia
+Wagga Wagga,Australia
+Warringa,Australia
+Wauchope,Australia
+Wee Jasper,Australia
+West Wyalong,Australia
+Windsor,Australia
+Wollongong,Australia
+Woronora Heights,Australia
+Wyong,Australia
+Yass,Australia
+Young,Australia
+Adelaide,Australia
+Beachport,Australia
+Brighton,Australia
+Elizabeth,Australia
+Loxton,Australia
+Millicent,Australia
+Mount Gambier,Australia
+Murray Bridge,Australia
+Oodnadatta,Australia
+Reynella,Australia
+Whyalla,Australia
+Woomera,Australia
+Yorketown,Australia
+Albany,Australia
+Armadale,Australia
+Broome,Australia
+Bunbury,Australia
+Carnarvon,Australia
+Derby,Australia
+Dongara,Australia
+Esperance,Australia
+Exmouth,Australia
+Fitzroy Crossing,Australia
+Fremantle,Australia
+Geraldton,Australia
+Halls Creek,Australia
+Harvey,Australia
+Kalgoorlie,Australia
+Karratha,Australia
+Kununurra,Australia
+Mandurah,Australia
+Manjimup,Australia
+Margaret River,Australia
+Newman,Australia
+Perth,Australia
+Port Hedland,Australia
+Rockingham,Australia
+Shark Bay,Australia
+Williamstown,Australia
+York,Australia
+Alice Springs,Australia
+Darwin,Australia
+Katherine,Australia
+Tennant Creek,Australia
+Canberra,Australia
+Eisenstadt,Austria
+Güssing,Austria
+Neudörfl,Austria
+Pinkafeld,Austria
+Stegersbach,Austria
+Bodensdorf,Austria
+Döbriach,Austria
+Feldkirchen,Austria
+Klagenfurt,Austria
+Villach,Austria
+Bad Vöslau,Austria
+Baden,Austria
+Ebreichsdorf,Austria
+Gänserndorf,Austria
+Grafenbach,Austria
+Klosterneuburg,Austria
+Korneuburg,Austria
+Lilienfeld,Austria
+Mödling,Austria
+Neulengbach,Austria
+Retz,Austria
+Rosental,Austria
+Sankt Pölten,Austria
+Wiener Neustadt,Austria
+Wieselburg,Austria
+Zwettl,Austria
+Bad Hall,Austria
+Hagenberg,Austria
+Kremsmünster,Austria
+Linz,Austria
+Steyr,Austria
+Wels,Austria
+Salzburg,Austria
+Sankt Johann im Pongau,Austria
+Tamsweg,Austria
+Zell am See,Austria
+Graz,Austria
+Kindberg,Austria
+Leoben,Austria
+Mürzzuschlag,Austria
+Innsbruck,Austria
+Jochberg,Austria
+Kitzbuhel,Austria
+Reutte,Austria
+Solden,Austria
+Wörgl,Austria
+Zirl,Austria
+Bregenz,Austria
+Dornbirn,Austria
+Götzis,Austria
+Hohenems,Austria
+Abtenau,Austria
+Vienna,Austria
+Wien,Austria
+Baku,Azerbaijan
+Freetown,The Bahamas
+Old Bight,The Bahamas
+Georgetown,The Bahamas
+Matthew Town,The Bahamas
+Abraham's Bay,The Bahamas
+Nassau,The Bahamas
+Nassau City,The Bahamas
+Colonel Hill,The Bahamas
+Snug Corner,The Bahamas
+Freeport,The Bahamas
+Cooper's Town,The Bahamas
+Behring Point,The Bahamas
+Marsh Harbour,The Bahamas
+Sandy Point,The Bahamas
+Fresh Creek,The Bahamas
+San Andros,The Bahamas
+Rock Sound,The Bahamas
+Cockburn Town,The Bahamas
+Port Nelson,The Bahamas
+Al Manamah,Bahrain
+Ar Rifa,Bahrain
+Awali,Bahrain
+Manama,Bahrain
+Muharraq,Bahrain
+Jasra,Bahrain
+Isa Town,Bahrain
+Comilla,Bangladesh
+Dhaka,Bangladesh
+Khulna,Bangladesh
+Rajshahi,Bangladesh
+Saginaw,Bangladesh
+Christchurch,Barbados
+Bridgetown,Barbados
+Warrens,Barbados
+Speightstown,Barbados
+Brest,Belarus
+Mahilyow,Belarus
+Minsk,Belarus
+Minsk,Belarus
+Molodechno,Belarus
+Antwerp,Belgium
+Arendonk,Belgium
+Berlaar,Belgium
+Bornem,Belgium
+Geel,Belgium
+Heist-op-den-Berg,Belgium
+Herentals,Belgium
+Lierre,Belgium
+Malines,Belgium
+Mechelen,Belgium
+Mortsel,Belgium
+Puurs,Belgium
+Reet,Belgium
+Turnhout,Belgium
+Westmalle,Belgium
+Binche,Belgium
+Braine-Le-Comte,Belgium
+Charleroi,Belgium
+Frameries,Belgium
+Hennuyeres,Belgium
+La Louvière,Belgium
+Mons,Belgium
+Péruwelz,Belgium
+Soignies,Belgium
+Tournai,Belgium
+Eupen,Belgium
+Huy,Belgium
+Liege,Belgium
+Verviers,Belgium
+Bree,Belgium
+Dilsen,Belgium
+Genk,Belgium
+Hasselt,Belgium
+Kinrooi,Belgium
+Lanaken,Belgium
+Maaseik,Belgium
+Peer,Belgium
+Sint-Truiden,Belgium
+Tongeren,Belgium
+Arlon,Belgium
+Halanzy,Belgium
+Marche-En-Famenne,Belgium
+Ciney,Belgium
+Namur,Belgium
+Rhisnes,Belgium
+Sombreffe,Belgium
+Aalst,Belgium
+Belsele,Belgium
+Dendermonde,Belgium
+Gavere,Belgium
+Gent,Belgium
+Gentbrugge,Belgium
+Holland,Belgium
+Lochristi,Belgium
+Lokeren,Belgium
+Maldegem,Belgium
+Merelbeke,Belgium
+Ninove,Belgium
+Oudenaarde,Belgium
+Sint-Niklaas,Belgium
+Zottegem,Belgium
+Brugge,Belgium
+Diksmuide,Belgium
+Harelbeke,Belgium
+Izegem,Belgium
+Knokke-Heist,Belgium
+Kortrijk,Belgium
+Meulebeke,Belgium
+Middelkerke,Belgium
+Ostend,Belgium
+Pittem,Belgium
+Veurne,Belgium
+Waregem,Belgium
+Brussels,Belgium
+Leuven,Belgium
+Woluwe-Saint-Lambert,Belgium
+Woluwe-Saint-Pierre,Belgium
+Genappe,Belgium
+Grez-Doiceau,Belgium
+Holland,Belgium
+Jodoigne,Belgium
+Nivelles,Belgium
+Ottignies,Belgium
+Sint-Margriete-Houtem,Belgium
+Waterloo,Belgium
+Wavre,Belgium
+Aarschot,Belgium
+Boortmeerbeek,Belgium
+Diest,Belgium
+Dilbeek,Belgium
+Grimbergen,Belgium
+Keerbergen,Belgium
+Koningslo,Belgium
+Landen,Belgium
+Overijse,Belgium
+Tienen,Belgium
+Vilvoorde,Belgium
+Belize,Belize
+Belize City,Belize
+Belmopan,Belize
+San Ignacio,Belize
+Orange Walk,Belize
+Punta Gorda,Belize
+Natitingou,Benin
+Cotonou,Benin
+Porto-Novo,Benin
+Hamilton,Bermuda
+Saint George,Bermuda
+Somerset,Bermuda
+Sucre,Bolivia
+Villazon,Bolivia
+Aiquile,Bolivia
+Chimore,Bolivia
+Cochabamba,Bolivia
+Lagunillas,Bolivia
+Mizque,Bolivia
+Puerto Patino,Bolivia
+Puerto Villarroel,Bolivia
+Punata,Bolivia
+Chulumani,Bolivia
+Cotoca,Bolivia
+Guayaramerin,Bolivia
+Riberalta,Bolivia
+San Borja,Bolivia
+Apolo,Bolivia
+Charaña,Bolivia
+Corioco,Bolivia
+La Paz,Bolivia
+Machacamarca,Bolivia
+Uyuni,Bolivia
+Vinto,Bolivia
+Yolosa,Bolivia
+Caracollo,Bolivia
+Oruro,Bolivia
+Portachuelo,Bolivia
+Trinidad,Bolivia
+Atocha,Bolivia
+Potosi,Bolivia
+Tupiza,Bolivia
+Puerto Grether,Bolivia
+San Jose de Chiquitos,Bolivia
+Santa Ana,Bolivia
+Santa Cruz,Bolivia
+Santa Rosa del Sara,Bolivia
+Bermejo,Bolivia
+Tarija,Bolivia
+Yacuiba,Bolivia
+Banja Luka,Bosnia and Herzegovina
+Bijeljina,Bosnia and Herzegovina
+Brcko,Bosnia and Herzegovina
+Gradiska,Bosnia and Herzegovina
+Bugojno,Bosnia and Herzegovina
+Fojnica,Bosnia and Herzegovina
+Gorazde,Bosnia and Herzegovina
+Livno,Bosnia and Herzegovina
+Mostar,Bosnia and Herzegovina
+Sarajevo,Bosnia and Herzegovina
+Tuzla,Bosnia and Herzegovina
+Gaborone,Botswana
+Rio Branco,Brazil
+Macapa,Brazil
+Barreiras,Brazil
+Ilhéus,Brazil
+Itapetinga,Brazil
+Porto Seguro,Brazil
+Salvador,Brazil
+Trancoso,Brazil
+Catalão,Brazil
+Goiânia,Brazil
+Caravelas,Brazil
+Parnaíba,Brazil
+Teresina,Brazil
+Fortaleza,Brazil
+Sobral,Brazil
+Cascavel,Brazil
+Curitiba,Brazil
+Foz do Iguaçu,Brazil
+Londrina,Brazil
+Maringa,Brazil
+São José dos Pinhais,Brazil
+União da Vitória,Brazil
+Maceio,Brazil
+Sao Miguel dos Campos,Brazil
+Campina Grande,Brazil
+João Pessoa,Brazil
+Boa Vista,Brazil
+Aracaju,Brazil
+Manáus,Brazil
