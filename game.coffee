@@ -2,48 +2,89 @@ window.curr_letter = ''
 window.last_city = ''
 window.used_cities = []
 
+
+window.handleInputKeyup = (evt) ->
+	handleSubmit() if evt.keyCode is 13
+
 window.handleSubmit = () ->
-	valid = validate()
-	update()
-	setTimeout computerTurn, 1000 if valid
-
-window.validate = () ->
-	input = $('input[name=city_name]')
-	input_city = $.trim(input.val())
+	cityname = $.trim($('input[name=city_name]').val())
+	try
+		isValid = isValidCity(cityname)
+		handleComputerTurn()
+	catch error
+		handleErrors(error, cityname)
+	finally
+		updateDisplay()
+		
+	
+window.isValidCity = (input_city) ->
 	first_letter = (input_city[0]).toUpperCase()
-	input_city = first_letter + input_city.substr(1)
+	city = first_letter + input_city.substr(1)
 
-	#TODO: Validate string:  all lowercase
+	#TODO:  Validate string:  all lowercase
 	if not cities.hasOwnProperty first_letter
-		$('.status').text "Invalid First letter!"
-		return false
+		throw "FirstLetter"
 
-	if input_city in used_cities
-		$('.status').text "You've used that city already!  Try again."
-		return false
+	#TODO:  Need to use edit distance to check against used_cities
+	if city in used_cities
+		throw "DuplicateCity"
 
 	city_list_starting_with = cities[first_letter]
 	for tuple in city_list_starting_with
-		city_name = tuple[0]
+		list_city = tuple[0]
 		country_id = tuple[1]
-		if city_name is input_city
-			$('.status').text "You got it!  " + city_name + " is in " + countries[country_id]
-			window.last_city = city_name
-			used_cities.push city_name
-			input.val('')
+		if city is list_city
+			$('.status').text "You got it!  " + list_city + " is in " + countries[country_id]
+			window.last_city = list_city
+			used_cities.push list_city
+			$('input[name=city_name]').val('')
 			return true
-	$('.status').text input_city + " is NOT a valid city."
-	false
+	throw "InvalidCity"
 
-window.update = () ->
+window.updateDisplay = () ->
 	$('.streak').text used_cities
 	$('.count').text used_cities.length
+
+window.handleComputerTurn = (valid) ->
+	setTimeout computerTurn, 1000 if valid
+	
 
 window.computerTurn = () ->
 	$('.status').text "Computer's turn..."
 
+window.handleErrors = (error, input_city) ->
+	status = $('.status')
+		switch error
+			when "FirstLetter"
+				status.text "The first letter of your city is not in the English alphabet."
+			when "DuplicateCity"
+				status.text "You've used that city already!"
+			when "InvalidCity"
+				status.text cityname + " is not a valid city."
 
-window.handleInputKeyup = (e) ->
-	handleSubmit() if e.keyCode is 13
 
 
+
+window.runTestCases = () ->
+	testIsValid('Stanford');
+	testIsInvalid('Pirateville');
+	testIsValid('dubai');
+	testIsValid('Belem');		# this will fail for Belém unless we do edit distance
+
+window.testIsValid = (cityname) ->
+	passed = isValidCity cityname
+	$result = $('<div />').text "Testing that " + cityname + " is valid ... " + resultText(passed)
+	$result.css('color', resultColor(passed))
+	$('.testresults').append $result
+
+window.testIsInvalid = (cityname) ->
+	passed = not isValidCity cityname
+	$result = $('<div />').text "Testing that " + cityname + " is not valid ... " + resultText(passed)
+	$result.css('color', resultColor(passed))
+	$('.testresults').append $result
+
+window.resultText = (passed) ->
+	if passed then 'Passed' else 'Failed'
+	
+window.resultColor = (passed) ->
+	if passed then 'green' else 'red'
