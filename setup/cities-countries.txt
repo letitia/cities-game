@@ -1045,10 +1045,10 @@ Rexdale,Canada
 Richmond Hill,Canada
 Saint Marys,Canada
 Saint Thomas,Canada
-Saint. Joachim,Canada
+Saint Joachim,Canada
 Sarnia,Canada
 Sauble Beach,Canada
-Sault Ste. Marie,Canada
+Sault Ste Marie,Canada
 Scarborough,Canada
 Schomberg,Canada
 Shannonville,Canada
@@ -1058,7 +1058,7 @@ Sioux Lookout,Canada
 Smiths Falls,Canada
 South River,Canada
 Southampton,Canada
-St. Catharines,Canada
+St Catharines,Canada
 Staples,Canada
 Stirling,Canada
 Stoney Creek,Canada
@@ -1176,7 +1176,7 @@ Happy Valley-Goose Bay,Canada
 Labrador City,Canada
 Mount Pearl,Canada
 Paradise,Canada
-St. John's,Canada
+St John's,Canada
 Stephenville,Canada
 Wabush,Canada
 Bathurst,Canada
@@ -2003,7 +2003,7 @@ Gilleleje,Denmark
 Helsingør,Denmark
 Hillerød,Denmark
 Hørsholm,Denmark
-Humlebæk,Denmark
+Humlebaek,Denmark
 Olstykke,Denmark
 Bagenkop,Denmark
 Krogsbølle,Denmark
@@ -2258,7 +2258,7 @@ Hurghada,Egypt
 Giza,Egypt
 Cairo,Egypt
 Heliopolis,Egypt
-Ramadan 10 City,Egypt
+Ramadan City,Egypt
 Port Said,Egypt
 Luxor,Egypt
 Alexandria,Egypt
@@ -4003,7 +4003,7 @@ Agrigento,Italy
 Augusta,Italy
 Belmonte Mezzagno,Italy
 Caltanissetta,Italy
-Capo d_Orlando,Italy
+Capo d'Orlando,Italy
 Castelvetrano,Italy
 Catania,Italy
 Enna,Italy
@@ -5280,7 +5280,7 @@ Ornes,Norway
 Sandnessjoen,Norway
 Sortland,Norway
 Stokmarknes,Norway
-Svolvær,Norway
+Svolvaer,Norway
 Levanger,Norway
 Namsos,Norway
 Steinkjer,Norway
@@ -5301,7 +5301,7 @@ Skjeberg,Norway
 Egersund,Norway
 Haugesund,Norway
 Jørpeland,Norway
-Nærbo,Norway
+Naerbo,Norway
 Sandnes,Norway
 Stavanger,Norway
 Førde,Norway
@@ -11001,7 +11001,7 @@ Port Richey,United States
 Port Saint Joe,United States
 Port Saint Lucie,United States
 Port Salerno,United States
-Port St. Lucie,United States
+Port St Lucie,United States
 Punta Gorda,United States
 Putnam Hall,United States
 Quincy,United States
@@ -11047,7 +11047,7 @@ Sorrento,United States
 South Bay,United States
 Sparr,United States
 Spring Hill,United States
-St. Petersburg,United States
+St Petersburg,United States
 Starke,United States
 Steinhatchee,United States
 Stuart,United States
@@ -19300,7 +19300,7 @@ Spring Arbor,United States
 Spring Lake,United States
 Springport,United States
 Spruce,United States
-St.Clair,United States
+St Clair,United States
 Stambaugh,United States
 Standish,United States
 Stanton,United States
@@ -20252,7 +20252,7 @@ Banner,United States
 Bassfield,United States
 Batesville,United States
 Bay Saint Louis,United States
-Bay Saint. Louis,United States
+Bay Saint Louis,United States
 Bay Springs,United States
 Beaumont,United States
 Becker,United States
@@ -21506,7 +21506,7 @@ Spickard,United States
 Spokane,United States
 Springfield,United States
 Squires,United States
-St. Louis,United States
+St Louis,United States
 Stanberry,United States
 Stanton,United States
 Stark City,United States
@@ -32815,7 +32815,6 @@ Nada,United States
 Naples,United States
 Nash,United States
 Natalia,United States
-Naval Air Station/ jrb,United States
 Navasota,United States
 Nazareth,United States
 Neches,United States

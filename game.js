@@ -2,13 +2,34 @@
 (function() {
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  window.curr_letter = '';
+  window.curr_letter = "";
 
-  window.last_city = '';
+  window.curr_city = "";
+
+  window.last_city = "";
 
   window.used_cities = [];
 
-  window.error = '';
+  window.error = "";
+
+  window.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+  window.special_chars = {
+    "a": ['\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xc2'],
+    "e": ['\xe8', '\xe9', '\xea'],
+    "i": ['\xed'],
+    "o": ['\xf3', '\xf4', '\xf5', '\xf6', '\xf8'],
+    "u": ['\xfa', '\xfc'],
+    "c": ['\xe7'],
+    "d": ['\xf0'],
+    "n": ['\xf1'],
+    "s": ['\x9a'],
+    "ss": ['ß'],
+    " ": ["'", "-", ";", ""],
+    "-": [" ", "'", ";", ""],
+    "'": [" ", "-", ";", ""],
+    ";": [" ", "'", "-", ""]
+  };
 
   window.handleInputKeyup = function(evt) {
     if (evt.keyCode === 13) {
@@ -41,7 +62,7 @@
       tuple = city_list_starting_with[_i];
       list_city = tuple[0];
       country_id = tuple[1];
-      if (city === list_city) {
+      if (wordsMatch(city.toLowerCase(), list_city.toLowerCase())) {
         $('.status').text("You got it!  " + list_city + " is in " + countries[country_id]);
         window.last_city = list_city;
         used_cities.push(list_city);
@@ -51,6 +72,59 @@
     }
     window.error = input_city + " is NOT a valid city.";
     return false;
+  };
+
+  window.wordsMatch = function(word1, word2) {
+    var edit_dist;
+    edit_dist = getEditDistance(word1);
+    console.log("testing wordsMatch " + word1 + ' ' + word2);
+    return wordsMatchWithinEditDistance(word1, word2, edit_dist);
+  };
+
+  window.getEditDistance = function(word) {
+    var len;
+    len = word.length;
+    if (len < 3) {
+      return 1;
+    }
+    if (len < 11) {
+      return 2;
+    }
+    if (len < 15) {
+      return 3;
+    }
+    return 4;
+  };
+
+  window.wordsMatchWithinEditDistance = function(shorterWord, longerWord, edit_dist) {
+    var i, letter, rep, replaced, replacements, wordsMatch, _i, _j, _len, _len1;
+    if (shorterWord === longerWord) {
+      return true;
+    }
+    if (edit_dist === 0) {
+      return false;
+    }
+    if (Math.abs(longerWord.length - shorterWord.length) > edit_dist) {
+      return false;
+    }
+    wordsMatch = false;
+    for (i = _i = 0, _len = shorterWord.length; _i < _len; i = ++_i) {
+      letter = shorterWord[i];
+      if (i > 0) {
+        if (letter in special_chars) {
+          replacements = special_chars[letter];
+          for (_j = 0, _len1 = replacements.length; _j < _len1; _j++) {
+            rep = replacements[_j];
+            replaced = shorterWord.slice(0, i) + rep + shorterWord.slice(i + 1);
+            console.log("testing replaced: " + replaced + " with " + longerWord);
+            if (wordsMatchWithinEditDistance(replaced, longerWord, edit_dist - 1)) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return wordsMatch;
   };
 
   window.updateDisplay = function(cityIsValid) {
@@ -72,17 +146,47 @@
   };
 
   window.handleErrors = function() {
-    return $('.status').text(window.error);
+    return $('.status').text(error);
   };
 
   window.runTestCases = function() {
-    testIsValid('Stanford');
-    testIsInvalid('Pirateville');
-    testIsValid('dubai');
-    return testIsValid('Belem');
+    return testCityIsValid('Belem');
+    /*testWordsDontMatch('LA', 'Lazdijai', 2)
+    	testWordsMatch('Claremont', 'Claremont', 2)
+    	testWordsDontMatch('Clearmont', 'Claremont', 2)
+    	testWordsDontMatch('Upton', 'Unity', 2)
+    */
+
+    /*
+    	$('.testresults').append $('<br />')
+    	testCityIsValid('Stanford')
+    	testCityIsInvalid('Pirateville')
+    	testCityIsValid('dubai')
+    	testCityIsValid('Port-au-prince')
+    	testCityIsValid('Sault Sainte-Marie')
+    	testCityIsValid('Belem')		# this will fail unless we do edit distance
+    	testCityIsValid('Port au prince')		# this will fail for unless we do edit distance
+    */
+
   };
 
-  window.testIsValid = function(cityname) {
+  window.testWordsMatch = function(input, city, edit_dist) {
+    var $result, passed;
+    passed = wordsMatchWithinEditDistance(input, city, edit_dist);
+    $result = $('<div />').text("Testing that " + input + " and " + city + " match within " + edit_dist + " ... " + resultText(passed));
+    $result.css('color', resultColor(passed));
+    return $('.testresults').append($result);
+  };
+
+  window.testWordsDontMatch = function(input, city, edit_dist) {
+    var $result, passed;
+    passed = !wordsMatchWithinEditDistance(input, city, edit_dist);
+    $result = $('<div />').text("Testing that " + input + " and " + city + " do NOT match within " + edit_dist + " ... " + resultText(passed));
+    $result.css('color', resultColor(passed));
+    return $('.testresults').append($result);
+  };
+
+  window.testCityIsValid = function(cityname) {
     var $result, passed;
     passed = isValidCity(cityname);
     $result = $('<div />').text("Testing that " + cityname + " is valid ... " + resultText(passed));
@@ -90,10 +194,10 @@
     return $('.testresults').append($result);
   };
 
-  window.testIsInvalid = function(cityname) {
+  window.testCityIsInvalid = function(cityname) {
     var $result, passed;
     passed = !isValidCity(cityname);
-    $result = $('<div />').text("Testing that " + cityname + " is not valid ... " + resultText(passed));
+    $result = $('<div />').text("Testing that " + cityname + " is NOT valid ... " + resultText(passed));
     $result.css('color', resultColor(passed));
     return $('.testresults').append($result);
   };
