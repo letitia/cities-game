@@ -6,8 +6,6 @@
 
   window.curr_city = "";
 
-  window.last_city = "";
-
   window.used_cities = [];
 
   window.error = "";
@@ -24,12 +22,15 @@
     "d": ['\xf0'],
     "n": ['\xf1'],
     "s": ['\x9a'],
-    "ss": ['ß'],
+    "ss": ['\xdf'],
+    ".": [" ", "-", ";", ""],
     " ": ["'", "-", ";", ""],
     "-": [" ", "'", ";", ""],
     "'": [" ", "-", ";", ""],
     ";": [" ", "'", "-", ""]
   };
+
+  window.busy = false;
 
   window.handleInputKeyup = function(evt) {
     if (evt.keyCode === 13) {
@@ -38,23 +39,31 @@
   };
 
   window.handleSubmit = function() {
-    var cityname, isValid;
+    var answerIsValid, cityname;
+    window.busy = true;
     cityname = $.trim($('input[name=city_name]').val());
-    isValid = isValidCity(cityname);
-    updateDisplay(isValid);
+    answerIsValid = currLetterStartsCityname(cityname) && isValidCity(cityname) && currCityNeverUsed();
+    window.busy = false;
+    updateDisplay(answerIsValid);
     return handleComputerTurn();
+  };
+
+  window.currLetterStartsCityname = function(city) {
+    if (curr_letter) {
+      if (!(city[0].toUpperCase() === curr_letter)) {
+        window.error = "The first letter of your city must start with " + curr_letter;
+        return false;
+      }
+    }
+    return true;
   };
 
   window.isValidCity = function(input_city) {
     var city, city_list_starting_with, country_id, first_letter, list_city, tuple, _i, _len;
     first_letter = input_city[0].toUpperCase();
     city = first_letter + input_city.substr(1);
-    if (!cities.hasOwnProperty(first_letter)) {
+    if (!(first_letter in cities)) {
       window.error = "The first letter of your city is not in the English alphabet.";
-      return false;
-    }
-    if (__indexOf.call(used_cities, city) >= 0) {
-      window.error = "You've used that city already!";
       return false;
     }
     city_list_starting_with = cities[first_letter];
@@ -64,8 +73,7 @@
       country_id = tuple[1];
       if (wordsMatch(city.toLowerCase(), list_city.toLowerCase())) {
         $('.status').text("You got it!  " + list_city + " is in " + countries[country_id]);
-        window.last_city = list_city;
-        used_cities.push(list_city);
+        window.curr_city = list_city;
         $('input[name=city_name]').val('');
         return true;
       }
@@ -74,10 +82,23 @@
     return false;
   };
 
+  window.currCityNeverUsed = function() {
+    var unused;
+    unused = true;
+    if (__indexOf.call(used_cities, curr_city) >= 0) {
+      window.error = "You've used that city already!";
+      unused = false;
+    } else {
+      used_cities.push(curr_city);
+      window.curr_letter = curr_city.slice(-1).toUpperCase();
+    }
+    window.curr_city = "";
+    return unused;
+  };
+
   window.wordsMatch = function(word1, word2) {
     var edit_dist;
     edit_dist = getEditDistance(word1);
-    console.log("testing wordsMatch " + word1 + ' ' + word2);
     return wordsMatchWithinEditDistance(word1, word2, edit_dist);
   };
 
@@ -116,7 +137,6 @@
           for (_j = 0, _len1 = replacements.length; _j < _len1; _j++) {
             rep = replacements[_j];
             replaced = shorterWord.slice(0, i) + rep + shorterWord.slice(i + 1);
-            console.log("testing replaced: " + replaced + " with " + longerWord);
             if (wordsMatchWithinEditDistance(replaced, longerWord, edit_dist - 1)) {
               return true;
             }
@@ -149,25 +169,30 @@
     return $('.status').text(error);
   };
 
+  window.checkBusyStatus = function() {
+    return setInterval((function() {
+      if (busy) {
+        return $('#spinner').show();
+      } else {
+        return $('#spinner').hide();
+      }
+    }), 10);
+  };
+
+  checkBusyStatus();
+
   window.runTestCases = function() {
-    return testCityIsValid('Belem');
-    /*testWordsDontMatch('LA', 'Lazdijai', 2)
-    	testWordsMatch('Claremont', 'Claremont', 2)
-    	testWordsDontMatch('Clearmont', 'Claremont', 2)
-    	testWordsDontMatch('Upton', 'Unity', 2)
-    */
-
-    /*
-    	$('.testresults').append $('<br />')
-    	testCityIsValid('Stanford')
-    	testCityIsInvalid('Pirateville')
-    	testCityIsValid('dubai')
-    	testCityIsValid('Port-au-prince')
-    	testCityIsValid('Sault Sainte-Marie')
-    	testCityIsValid('Belem')		# this will fail unless we do edit distance
-    	testCityIsValid('Port au prince')		# this will fail for unless we do edit distance
-    */
-
+    testWordsDontMatch('LA', 'Lazdijai', 2);
+    testWordsMatch('Claremont', 'Claremont', 2);
+    testWordsDontMatch('Clearmont', 'Claremont', 2);
+    testWordsDontMatch('Upton', 'Unity', 2);
+    $('.testresults').append($('<br />'));
+    testCityIsValid('Stanford');
+    testCityIsValid('dubai');
+    testCityIsValid('Port-au-prince');
+    testCityIsValid('Sault Ste-Marie');
+    testCityIsValid('Belem');
+    return testCityIsValid('Port au prince');
   };
 
   window.testWordsMatch = function(input, city, edit_dist) {

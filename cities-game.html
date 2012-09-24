@@ -1,6 +1,6 @@
 <html>
 <head>
-	<script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="jquery-1.7.2.min.js"></script>
 	<script src="countries.js"></script>
 	<script src="cities.js"></script>
 	<script src="game.js"></script>
@@ -8,7 +8,7 @@
 <body>
 	
 	<input type="text" name="city_name" onkeyup="handleInputKeyup(event);">
-	<button onclick="handleSubmit();">Run</button>
+	<button onclick="handleSubmit();">Run</button><img id="spinner" src="spinner.gif" style="display:none;" />
 	<p class="status"></p>
 	<p>Cities:  <span class="streak"></span></p>
 	<p>Your streak is:  <span class="count">0</span></p>

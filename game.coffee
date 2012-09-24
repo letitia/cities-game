@@ -1,6 +1,5 @@
 window.curr_letter = ""
 window.curr_city = ""
-window.last_city = ""
 window.used_cities = []
 window.error = ""
 window.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -8,41 +7,46 @@ window.special_chars = {
 		"a": ['\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xc2',],	#['ä', 'â', 'å', 'ã', 'á', 'à', 'Â'],
 		"e": ['\xe8', '\xe9', '\xea'],									#["è", "é", "ê""],
 		"i": ['\xed'],													#['í'],
-		"o": ['\xf3', '\xf4', '\xf5', '\xf6', '\xf8'],				 	#[ó", "ô", "õ", "ö", "ø"],
+		"o": ['\xf3', '\xf4', '\xf5', '\xf6', '\xf8'],				 	#["ó", "ô", "õ", "ö", "ø"],
 		"u": ['\xfa', '\xfc']											#['ú', 'ü'],
 		"c": ['\xe7'],													#['ç'],
 		"d": ['\xf0'],													#["ð"]
 		"n": ['\xf1'],													#['ñ'],
 		"s": ['\x9a'],													#['š'],
-		"ss": ['ß'],
+		"ss": ['\xdf'],													#['ß'],
+		".": [" ", "-", ";", ""],
 		" ": ["'", "-", ";", ""],
 		"-": [" ", "'", ";", ""],
 		"'": [" ", "-", ";", ""],
 		";": [" ", "'", "-", ""]
 	}
+window.busy = false
 
 
 window.handleInputKeyup = (evt) ->
 	handleSubmit() if evt.keyCode is 13
 
 window.handleSubmit = () ->
+	window.busy = true
 	cityname = $.trim($('input[name=city_name]').val())
-	isValid = isValidCity(cityname)
-	updateDisplay(isValid)
+	answerIsValid = currLetterStartsCityname(cityname) and isValidCity(cityname) and currCityNeverUsed()
+	window.busy = false
+	updateDisplay(answerIsValid)
 	handleComputerTurn()
 	
+window.currLetterStartsCityname = (city) ->
+	if curr_letter
+		if not (city[0].toUpperCase() is curr_letter)
+			window.error = "The first letter of your city must start with " + curr_letter
+			return false
+	true
 		
 window.isValidCity = (input_city) ->
 	first_letter = (input_city[0]).toUpperCase()
 	city = first_letter + input_city.substr(1)
 
-	if not cities.hasOwnProperty first_letter
+	if not (first_letter of cities)
 		window.error = "The first letter of your city is not in the English alphabet."
-		return false
-
-	#TODO:  Need to use edit distance to check against used_cities
-	if city in used_cities
-		window.error = "You've used that city already!"
 		return false
 
 	city_list_starting_with = cities[first_letter]
@@ -50,20 +54,26 @@ window.isValidCity = (input_city) ->
 		list_city = tuple[0]
 		country_id = tuple[1]
 		if wordsMatch(city.toLowerCase(), list_city.toLowerCase())
-		#if city.toLowerCase() is list_city.toLowerCase()
 			$('.status').text "You got it!  " + list_city + " is in " + countries[country_id]
-			window.last_city = list_city
-			used_cities.push list_city
+			window.curr_city = list_city
 			$('input[name=city_name]').val('')
 			return true
 	window.error = input_city + " is NOT a valid city."
 	false
 
+window.currCityNeverUsed = () ->
+	unused = true
+	if curr_city in used_cities
+		window.error = "You've used that city already!"
+		unused = false
+	else
+		used_cities.push curr_city
+		window.curr_letter = curr_city[-1..].toUpperCase()
+	window.curr_city = ""
+	unused
+
 window.wordsMatch = (word1, word2) ->
-	#shorterWord = if word1.length > word2.length  then word2  else word1
-	#longerWord  = if shorterWord is word1  then word2  else word1
 	edit_dist = getEditDistance word1
-	console.log "testing wordsMatch " + word1 + ' ' + word2
 	wordsMatchWithinEditDistance(word1, word2, edit_dist)
 
 window.getEditDistance = (word) ->
@@ -91,10 +101,7 @@ window.wordsMatchWithinEditDistance = (shorterWord, longerWord, edit_dist) ->
 			replacements = special_chars[letter]
 			for rep in replacements
 				replaced = shorterWord[...i] + rep + shorterWord[i+1...]
-				console.log "testing replaced: " + replaced + " with " + longerWord
 				return true if wordsMatchWithinEditDistance replaced, longerWord, edit_dist-1
-		#removed = shorterWord[...i] + shorterWord[i+1...]
-		#return true if wordsMatchWithinEditDistance removed, longerWord, edit_dist-1
 
 	wordsMatch
 
@@ -113,29 +120,31 @@ window.computerTurn = () ->
 window.handleErrors = () ->
 	$('.status').text error
 
+window.checkBusyStatus = () ->
+	setInterval (() -> if busy then $('#spinner').show() else $('#spinner').hide()), 10
+
+checkBusyStatus();
 
 
 
-
+# This takes a couple of minutes, or longer if you uncomment out the long cases
 window.runTestCases = () ->
-	testCityIsValid('Belem')
-	###testWordsDontMatch('LA', 'Lazdijai', 2)
+	testWordsDontMatch('LA', 'Lazdijai', 2)
 	testWordsMatch('Claremont', 'Claremont', 2)
 	testWordsDontMatch('Clearmont', 'Claremont', 2)
-	testWordsDontMatch('Upton', 'Unity', 2)###
+	testWordsDontMatch('Upton', 'Unity', 2)
 	
 	
-
-	###
 	$('.testresults').append $('<br />')
 	testCityIsValid('Stanford')
-	testCityIsInvalid('Pirateville')
+	#testCityIsInvalid('Pirateville')			# this test takes 30 seconds
 	testCityIsValid('dubai')
 	testCityIsValid('Port-au-prince')
-	testCityIsValid('Sault Sainte-Marie')
-	testCityIsValid('Belem')		# this will fail unless we do edit distance
-	testCityIsValid('Port au prince')		# this will fail for unless we do edit distance
-	###
+	testCityIsValid('Sault Ste-Marie')
+	#testCityIsValid('Sault Sainte-Marie')		# this test takes a few minutes.  will fail unless we do edit distance
+	testCityIsValid('Belem')		
+	testCityIsValid('Port au prince')
+	
 
 window.testWordsMatch = (input, city, edit_dist) ->
 	passed = wordsMatchWithinEditDistance input, city, edit_dist
