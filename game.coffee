@@ -1,6 +1,7 @@
 window.curr_letter = ""
-window.curr_city = ""
-window.used_cities = []
+window.curr_city = []
+window.used_citynames = []
+window.used_countries = {}
 window.error = ""
 window.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 window.special_chars = {
@@ -31,7 +32,7 @@ window.handleSubmit = () ->
 	cityname = $.trim($('input[name=city_name]').val())
 	answerIsValid = currLetterStartsCityname(cityname) and isValidCity(cityname) and currCityNeverUsed()
 	window.busy = false
-	updateDisplay(answerIsValid)
+	updateProgramAndDisplay(answerIsValid)
 	handleComputerTurn()
 	
 window.currLetterStartsCityname = (city) ->
@@ -55,7 +56,7 @@ window.isValidCity = (input_city) ->
 		country_id = tuple[1]
 		if wordsMatch(city.toLowerCase(), list_city.toLowerCase())
 			$('.status').text "You got it!  " + list_city + " is in " + countries[country_id]
-			window.curr_city = list_city
+			window.curr_city = [list_city, country_id]
 			$('input[name=city_name]').val('')
 			return true
 	window.error = input_city + " is NOT a valid city."
@@ -63,13 +64,10 @@ window.isValidCity = (input_city) ->
 
 window.currCityNeverUsed = () ->
 	unused = true
-	if curr_city in used_cities
+	curr_cityname = curr_city[0]
+	if curr_cityname in used_citynames
 		window.error = "You've used that city already!"
 		unused = false
-	else
-		used_cities.push curr_city
-		window.curr_letter = curr_city[-1..].toUpperCase()
-	window.curr_city = ""
 	unused
 
 window.wordsMatch = (word1, word2) ->
@@ -95,7 +93,7 @@ window.wordsMatchWithinEditDistance = (shorterWord, longerWord, edit_dist) ->
 
 	wordsMatch = false
 	
-	#  test every letter except the first letter
+	#  test every letter except first letter
 	for letter, i in shorterWord when i > 0
 		if letter of special_chars
 			replacements = special_chars[letter]
@@ -105,10 +103,26 @@ window.wordsMatchWithinEditDistance = (shorterWord, longerWord, edit_dist) ->
 
 	wordsMatch
 
-window.updateDisplay = (cityIsValid) ->
-	handleErrors() if not cityIsValid
-	$('.streak').text used_cities
-	$('.count').text used_cities.length
+window.updateProgramAndDisplay = (cityIsValid) ->
+	if cityIsValid
+		curr_cityname = curr_city[0]; curr_country = curr_city[1]
+		window.curr_city = []
+		used_citynames.push curr_cityname
+		incrementKeyFrequencyInMap(curr_country, used_countries)
+		window.curr_letter = curr_cityname[-1..].toUpperCase()
+		$('.currletter').text curr_letter
+	else
+		handleErrors()
+	$('.usedcities').text used_citynames
+	$('.count').text used_citynames.length
+	printCountries()
+	return
+
+window.printCountries = () ->
+	result = ""
+	for country, count in used_countries
+		result += country + ": " + count + "\n"
+	$('.countries').text result
 
 window.handleComputerTurn = (valid) ->
 	setTimeout computerTurn, 1000 if valid
@@ -119,6 +133,10 @@ window.computerTurn = () ->
 
 window.handleErrors = () ->
 	$('.status').text error
+
+window.incrementKeyFrequencyInMap = (key, map) ->
+	if not (key of map) then map[key] = 0
+	map[key] += 1
 
 window.checkBusyStatus = () ->
 	setInterval (() -> if busy then $('#spinner').show() else $('#spinner').hide()), 10

@@ -4,17 +4,21 @@
 	<script src="countries.js"></script>
 	<script src="cities.js"></script>
 	<script src="game.js"></script>
+	<link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	
-	<input type="text" name="city_name" onkeyup="handleInputKeyup(event);">
-	<button onclick="handleSubmit();">Run</button><img id="spinner" src="spinner.gif" style="display:none;" />
-	<p class="status"></p>
-	<p>Cities:  <span class="streak"></span></p>
-	<p>Your streak is:  <span class="count">0</span></p>
+	<div id="main">
+		<h1>Cities Game</h1>
+		<h3>Enter a city that starts with <span class="currletter">any letter</span>:</h3>
+		<input type="text" name="city_name" onkeyup="handleInputKeyup(event);">
+		<button class="submit" onclick="handleSubmit();">Enter</button><img id="spinner" src="spinner.gif" style="display:none;" />
+		<p class="status"></p>
+		<p>Cities:  <span class="usedcities"></span></p>
+		<p>Your streak is:  <span class="count">0</span></p>
+		<p>Countries you've used: <span class="countries"></span></p>
 
-	<button onclick="runTestCases();">Test</button>
-	<p class="testresults"></p>
-
+		<button onclick="runTestCases();">Test</button>
+		<p class="testresults"></p>
+	</div>
 </body>
 </html>

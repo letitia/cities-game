@@ -1,0 +1,24 @@
+/* Reset */
+body { margin: 0; padding: 0; }
+body, input, button {
+	font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif; font-weight:300; font-stretch:normal;
+}
+h1, h2, h3, h4, h5 { font-weight: normal; }
+
+
+/* Styles */
+#main {
+	width: 600px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 30px;
+	background-color: #FFA07A;
+}
+
+input[name=city_name], button.submit {
+	font-size: 24px;
+}
+
+input[name=city_name] {
+	width: 400px;
+}

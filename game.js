@@ -4,9 +4,11 @@
 
   window.curr_letter = "";
 
-  window.curr_city = "";
+  window.curr_city = [];
 
-  window.used_cities = [];
+  window.used_citynames = [];
+
+  window.used_countries = {};
 
   window.error = "";
 
@@ -44,7 +46,7 @@
     cityname = $.trim($('input[name=city_name]').val());
     answerIsValid = currLetterStartsCityname(cityname) && isValidCity(cityname) && currCityNeverUsed();
     window.busy = false;
-    updateDisplay(answerIsValid);
+    updateProgramAndDisplay(answerIsValid);
     return handleComputerTurn();
   };
 
@@ -73,7 +75,7 @@
       country_id = tuple[1];
       if (wordsMatch(city.toLowerCase(), list_city.toLowerCase())) {
         $('.status').text("You got it!  " + list_city + " is in " + countries[country_id]);
-        window.curr_city = list_city;
+        window.curr_city = [list_city, country_id];
         $('input[name=city_name]').val('');
         return true;
       }
@@ -83,16 +85,13 @@
   };
 
   window.currCityNeverUsed = function() {
-    var unused;
+    var curr_cityname, unused;
     unused = true;
-    if (__indexOf.call(used_cities, curr_city) >= 0) {
+    curr_cityname = curr_city[0];
+    if (__indexOf.call(used_citynames, curr_cityname) >= 0) {
       window.error = "You've used that city already!";
       unused = false;
-    } else {
-      used_cities.push(curr_city);
-      window.curr_letter = curr_city.slice(-1).toUpperCase();
     }
-    window.curr_city = "";
     return unused;
   };
 
@@ -147,12 +146,32 @@
     return wordsMatch;
   };
 
-  window.updateDisplay = function(cityIsValid) {
-    if (!cityIsValid) {
+  window.updateProgramAndDisplay = function(cityIsValid) {
+    var curr_cityname, curr_country;
+    if (cityIsValid) {
+      curr_cityname = curr_city[0];
+      curr_country = curr_city[1];
+      window.curr_city = [];
+      used_citynames.push(curr_cityname);
+      incrementKeyFrequencyInMap(curr_country, used_countries);
+      window.curr_letter = curr_cityname.slice(-1).toUpperCase();
+      $('.currletter').text(curr_letter);
+    } else {
       handleErrors();
     }
-    $('.streak').text(used_cities);
-    return $('.count').text(used_cities.length);
+    $('.usedcities').text(used_citynames);
+    $('.count').text(used_citynames.length);
+    printCountries();
+  };
+
+  window.printCountries = function() {
+    var count, country, result, _i, _len;
+    result = "";
+    for (count = _i = 0, _len = used_countries.length; _i < _len; count = ++_i) {
+      country = used_countries[count];
+      result += country + ": " + count + "\n";
+    }
+    return $('.countries').text(result);
   };
 
   window.handleComputerTurn = function(valid) {
@@ -167,6 +186,13 @@
 
   window.handleErrors = function() {
     return $('.status').text(error);
+  };
+
+  window.incrementKeyFrequencyInMap = function(key, map) {
+    if (!(key in map)) {
+      map[key] = 0;
+    }
+    return map[key] += 1;
   };
 
   window.checkBusyStatus = function() {
