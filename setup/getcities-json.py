@@ -1,6 +1,6 @@
 import pickle
 
-countries_filename = "Countries.txt";
+countries_filename = "Countries-cleaned.txt";
 
 countries = {}
 

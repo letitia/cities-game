@@ -37169,6 +37169,9 @@ La Guaira,Venezuela
 Macuto,Venezuela
 Maiquetia,Venezuela
 Piedra Azul,Venezuela
+Da Lat,Vietnam
+Da Nang,Vietnam
+Ha Long,Vietnam
 Hanoi,Vietnam
 Ho Chi Minh City,Vietnam
 Bien Hoa,Vietnam
