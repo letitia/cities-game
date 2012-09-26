@@ -7,18 +7,31 @@ h1, h2, h3, h4, h5 { font-weight: normal; }
 
 
 /* Styles */
-#main {
-	width: 600px;
+#container {
+	width: 100%;
+	min-width: 900px;
+}
+#sidebar {
+	background-color: #a3a3a3;
+	padding: 30px 20px;
+	float: left;
+	width: 280px;
 	height: 100%;
-	margin: 0 auto;
+}
+#content {
+	margin-left: 320px;
+	height: 100%;
 	padding: 30px;
 	background-color: #FFA07A;
 }
 
+.instructions {
+	font-size: 18px;
+}
 input[name=city_name], button.submit {
 	font-size: 24px;
 }
 
 input[name=city_name] {
-	width: 400px;
+	width: 200px;
 }

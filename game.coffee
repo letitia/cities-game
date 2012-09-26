@@ -120,9 +120,9 @@ window.updateProgramAndDisplay = (cityIsValid) ->
 
 window.printCountries = () ->
 	result = ""
-	for country, count in used_countries
-		result += country + ": " + count + "\n"
-	$('.countries').text result
+	for id, count of used_countries
+		result += countries[id] + ": " + count + "<br />"
+	$('.countries').html result
 
 window.handleComputerTurn = (valid) ->
 	setTimeout computerTurn, 1000 if valid

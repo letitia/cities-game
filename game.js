@@ -165,13 +165,13 @@
   };
 
   window.printCountries = function() {
-    var count, country, result, _i, _len;
+    var count, id, result;
     result = "";
-    for (count = _i = 0, _len = used_countries.length; _i < _len; count = ++_i) {
-      country = used_countries[count];
-      result += country + ": " + count + "\n";
+    for (id in used_countries) {
+      count = used_countries[id];
+      result += countries[id] + ": " + count + "<br />";
     }
-    return $('.countries').text(result);
+    return $('.countries').html(result);
   };
 
   window.handleComputerTurn = function(valid) {
