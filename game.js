@@ -42,10 +42,10 @@
 
   window.handleSubmit = function() {
     var answerIsValid, cityname;
-    window.busy = true;
+    window.setBusy();
     cityname = $.trim($('input[name=city_name]').val());
-    answerIsValid = currLetterStartsCityname(cityname) && isValidCity(cityname) && currCityNeverUsed();
-    window.busy = false;
+    answerIsValid = cityname && currLetterStartsCityname(cityname) && isValidCity(cityname) && currCityNeverUsed();
+    window.setNotBusy();
     updateProgramAndDisplay(answerIsValid);
     return handleComputerTurn();
   };
@@ -205,7 +205,13 @@
     }), 10);
   };
 
-  checkBusyStatus();
+  window.setBusy = function() {
+    return $('#spinner').show();
+  };
+
+  window.setNotBusy = function() {
+    return $('#spinner').hide();
+  };
 
   window.runTestCases = function() {
     testWordsDontMatch('LA', 'Lazdijai', 2);

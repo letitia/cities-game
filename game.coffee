@@ -28,10 +28,10 @@ window.handleInputKeyup = (evt) ->
 	handleSubmit() if evt.keyCode is 13
 
 window.handleSubmit = () ->
-	window.busy = true
+	window.setBusy()
 	cityname = $.trim($('input[name=city_name]').val())
-	answerIsValid = currLetterStartsCityname(cityname) and isValidCity(cityname) and currCityNeverUsed()
-	window.busy = false
+	answerIsValid = cityname and currLetterStartsCityname(cityname) and isValidCity(cityname) and currCityNeverUsed()
+	window.setNotBusy()
 	updateProgramAndDisplay(answerIsValid)
 	handleComputerTurn()
 	
@@ -141,7 +141,14 @@ window.incrementKeyFrequencyInMap = (key, map) ->
 window.checkBusyStatus = () ->
 	setInterval (() -> if busy then $('#spinner').show() else $('#spinner').hide()), 10
 
-checkBusyStatus();
+window.setBusy = () ->
+	$('#spinner').show()
+
+window.setNotBusy = () ->
+	$('#spinner').hide()
+
+
+#checkBusyStatus();
 
 
 

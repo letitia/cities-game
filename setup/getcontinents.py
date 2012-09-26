@@ -1,4 +1,4 @@
-countries_filename = "Countries-cleaned.txt";
+countries_filename = "countries-cleaned.txt";
 
 countries2continents = {}
 

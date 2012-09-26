@@ -692,10 +692,10 @@ Garanhuns,South America
 Itamaraca,South America
 Recife,South America
 Road Town,Central America and the Caribbean
-Kuala Belait,Southeast Asia
-Bandar Seri Begawan,Southeast Asia
-Jerudong,Southeast Asia
-Tutong,Southeast Asia
+Kuala Belait,Asia
+Bandar Seri Begawan,Asia
+Jerudong,Asia
+Tutong,Asia
 Burgas,Europe
 Sliven,Europe
 Blagoevgrad,Europe
@@ -712,23 +712,23 @@ Ouagadougou,Africa
 Yako,Africa
 Ouahigouya,Africa
 Bousse,Africa
-Taunggyi,Southeast Asia
-Moulmein,Southeast Asia
-Yangon,Southeast Asia
+Taunggyi,Asia
+Moulmein,Asia
+Yangon,Asia
 Bujumbura,Africa
-Battambang,Southeast Asia
-Kampong Cham,Southeast Asia
-Kampot,Southeast Asia
-Kandal,Southeast Asia
-Kampong Thom,Southeast Asia
-Kratie,Southeast Asia
-Phnom Penh,Southeast Asia
-Pursat,Southeast Asia
-Prey Veng,Southeast Asia
-Stung Treng,Southeast Asia
-Svay Rieng,Southeast Asia
-Takeo,Southeast Asia
-Siem Reap,Southeast Asia
+Battambang,Asia
+Kampong Cham,Asia
+Kampot,Asia
+Kandal,Asia
+Kampong Thom,Asia
+Kratie,Asia
+Phnom Penh,Asia
+Pursat,Asia
+Prey Veng,Asia
+Stung Treng,Asia
+Svay Rieng,Asia
+Takeo,Asia
+Siem Reap,Asia
 Douala,Africa
 Mankon Bamenda,Africa
 Limbe,Africa
@@ -1811,7 +1811,7 @@ Shanwei,Asia
 Xisha Dao,Asia
 Chongqing,Asia
 Shache,Asia
-Flying Fish Cove,Southeast Asia
+Flying Fish Cove,Asia
 Barrancas,South America
 Cartagena,South America
 Leticia,South America
@@ -3049,19 +3049,19 @@ Roatan,Central America and the Caribbean
 Juticalpa,Central America and the Caribbean
 Yoro,Central America and the Caribbean
 Progreso,Central America and the Caribbean
-Chai Wan,Southeast Asia
-Fanling,Southeast Asia
-Hong Kong,Southeast Asia
-Kowloon,Southeast Asia
-Kwun Tong,Southeast Asia
-Shatin,Southeast Asia
-Sheung Shui,Southeast Asia
-Tai Po,Southeast Asia
-Tai Wan,Southeast Asia
-Tin Shui Wai,Southeast Asia
-Tseung Kwan O,Southeast Asia
-Tsuen Wan,Southeast Asia
-Tuen Mun,Southeast Asia
+Chai Wan,Asia
+Fanling,Asia
+Hong Kong,Asia
+Kowloon,Asia
+Kwun Tong,Asia
+Shatin,Asia
+Sheung Shui,Asia
+Tai Po,Asia
+Tai Wan,Asia
+Tin Shui Wai,Asia
+Tseung Kwan O,Asia
+Tsuen Wan,Asia
+Tuen Mun,Asia
 Hillye,Europe
 Kecskemet,Europe
 Pecs,Europe
@@ -3673,62 +3673,62 @@ Gumla,Asia
 Jamshedpur,Asia
 Patratu,Asia
 Ranchi,Asia
-Denpasar,Southeast Asia
-Klungkung,Southeast Asia
-Kuta,Southeast Asia
-Nusa Dua,Southeast Asia
-Ubud,Southeast Asia
-Biak,Southeast Asia
-Fakfak,Southeast Asia
-Jayapura,Southeast Asia
-Manokwari,Southeast Asia
-Merauke,Southeast Asia
-Nabire,Southeast Asia
-Serui,Southeast Asia
-Sorong,Southeast Asia
-Timika,Southeast Asia
-Meulaboh,Southeast Asia
-Bali,Southeast Asia
-Jakarta,Southeast Asia
-Bandung,Southeast Asia
-Bekasi,Southeast Asia
-Bogor,Southeast Asia
-Depok,Southeast Asia
-Purwokerto,Southeast Asia
-Purworejo,Southeast Asia
-Semarang,Southeast Asia
-Blitar,Southeast Asia
-Gresik,Southeast Asia
-Malang,Southeast Asia
-Pasuruan,Southeast Asia
-Sidoarjo,Southeast Asia
-Surabaya,Southeast Asia
-Yogyakarta,Southeast Asia
-Pontianak,Southeast Asia
-Banjarmasin,Southeast Asia
-Palangkaraya,Southeast Asia
-Balikpapan,Southeast Asia
-Samarinda,Southeast Asia
-Bandar Lampung,Southeast Asia
-Batuhijau Sumbawa,Southeast Asia
-Kuta,Southeast Asia
-Mataram,Southeast Asia
-Praya,Southeast Asia
-Selong,Southeast Asia
-Batam,Southeast Asia
-Pakanbaru,Southeast Asia
-Ujung Pandang,Southeast Asia
-Bitung,Southeast Asia
-Manado,Southeast Asia
-Tomohon,Southeast Asia
-Tondano,Southeast Asia
-Palembang,Southeast Asia
-Binjei,Southeast Asia
-Medan,Southeast Asia
-Padang,Southeast Asia
-Pematangsiantar,Southeast Asia
-Karawaci,Southeast Asia
-Tangerang,Southeast Asia
+Denpasar,Asia
+Klungkung,Asia
+Kuta,Asia
+Nusa Dua,Asia
+Ubud,Asia
+Biak,Asia
+Fakfak,Asia
+Jayapura,Asia
+Manokwari,Asia
+Merauke,Asia
+Nabire,Asia
+Serui,Asia
+Sorong,Asia
+Timika,Asia
+Meulaboh,Asia
+Bali,Asia
+Jakarta,Asia
+Bandung,Asia
+Bekasi,Asia
+Bogor,Asia
+Depok,Asia
+Purwokerto,Asia
+Purworejo,Asia
+Semarang,Asia
+Blitar,Asia
+Gresik,Asia
+Malang,Asia
+Pasuruan,Asia
+Sidoarjo,Asia
+Surabaya,Asia
+Yogyakarta,Asia
+Pontianak,Asia
+Banjarmasin,Asia
+Palangkaraya,Asia
+Balikpapan,Asia
+Samarinda,Asia
+Bandar Lampung,Asia
+Batuhijau Sumbawa,Asia
+Kuta,Asia
+Mataram,Asia
+Praya,Asia
+Selong,Asia
+Batam,Asia
+Pakanbaru,Asia
+Ujung Pandang,Asia
+Bitung,Asia
+Manado,Asia
+Tomohon,Asia
+Tondano,Asia
+Palembang,Asia
+Binjei,Asia
+Medan,Asia
+Padang,Asia
+Pematangsiantar,Asia
+Karawaci,Asia
+Tangerang,Asia
 Orumiyeh,Middle East
 Zahedan,Middle East
 Fasa,Middle East
@@ -4501,7 +4501,7 @@ Jahra,Middle East
 Al Farwaniyah,Middle East
 Bishkek,Asia
 Karakol,Asia
-Vientiane,Southeast Asia
+Vientiane,Asia
 Ligatne,Europe
 Liepaja,Europe
 Riga,Europe
@@ -4646,7 +4646,7 @@ Hesperange,Europe
 Luxembourg,Europe
 Pontpierre,Europe
 Strassen,Europe
-Macau,Southeast Asia
+Macau,Asia
 Skopje,Europe
 Ohrid,Europe
 Tetovo,Europe
@@ -4657,72 +4657,72 @@ Antananarivo,Africa
 Tulear,Africa
 Lilongwe,Africa
 Blantyre,Africa
-Batu Pahat,Southeast Asia
-Johor Baharu,Southeast Asia
-Kluang,Southeast Asia
-Kota Tinggi,Southeast Asia
-Muar,Southeast Asia
-Pontian,Southeast Asia
-Segamat,Southeast Asia
-Alor Setar,Southeast Asia
-Jitra,Southeast Asia
-Kulim,Southeast Asia
-Sungai Petani,Southeast Asia
-Kota Bharu,Southeast Asia
-Jasin,Southeast Asia
-Malacca,Southeast Asia
-Jelebu,Southeast Asia
-Kuala Pilah,Southeast Asia
-Seremban,Southeast Asia
-Bentong,Southeast Asia
-Jerantut,Southeast Asia
-Kuantan,Southeast Asia
-Raub,Southeast Asia
-Ipoh,Southeast Asia
-Kampar,Southeast Asia
-Kuala Kangsar,Southeast Asia
-Sitiawan,Southeast Asia
-Taiping,Southeast Asia
-Teluk Intan,Southeast Asia
-Arau,Southeast Asia
-Kangar,Southeast Asia
-Bayan Lepas,Southeast Asia
-Butterworth,Southeast Asia
-George Town,Southeast Asia
-Penang,Southeast Asia
-Prai,Southeast Asia
-Pulau Pinang,Southeast Asia
-Kuching,Southeast Asia
-Miri,Southeast Asia
-Sibu,Southeast Asia
-Sri Aman,Southeast Asia
-Ampang,Southeast Asia
-Bangi,Southeast Asia
-Cyberjaya,Southeast Asia
-Dengkil,Southeast Asia
-Kajang,Southeast Asia
-Klang,Southeast Asia
-Petaling Jaya,Southeast Asia
-Puchong,Southeast Asia
-Selayang Jaya,Southeast Asia
-Serdang,Southeast Asia
-Shah Alam,Southeast Asia
-Subang Jaya,Southeast Asia
-Ulu Kelang,Southeast Asia
-Dungun,Southeast Asia
-Jerteh,Southeast Asia
-Kemaman,Southeast Asia
-Kuala Terengganu,Southeast Asia
-Cheras,Southeast Asia
-Kuala Lumpur,Southeast Asia
-Sentul,Southeast Asia
-Beaufort,Southeast Asia
-Kota Kinabalu,Southeast Asia
-Kudat,Southeast Asia
-Labuan,Southeast Asia
-Nabawan,Southeast Asia
-Sandakan,Southeast Asia
-Tawau,Southeast Asia
+Batu Pahat,Asia
+Johor Baharu,Asia
+Kluang,Asia
+Kota Tinggi,Asia
+Muar,Asia
+Pontian,Asia
+Segamat,Asia
+Alor Setar,Asia
+Jitra,Asia
+Kulim,Asia
+Sungai Petani,Asia
+Kota Bharu,Asia
+Jasin,Asia
+Malacca,Asia
+Jelebu,Asia
+Kuala Pilah,Asia
+Seremban,Asia
+Bentong,Asia
+Jerantut,Asia
+Kuantan,Asia
+Raub,Asia
+Ipoh,Asia
+Kampar,Asia
+Kuala Kangsar,Asia
+Sitiawan,Asia
+Taiping,Asia
+Teluk Intan,Asia
+Arau,Asia
+Kangar,Asia
+Bayan Lepas,Asia
+Butterworth,Asia
+George Town,Asia
+Penang,Asia
+Prai,Asia
+Pulau Pinang,Asia
+Kuching,Asia
+Miri,Asia
+Sibu,Asia
+Sri Aman,Asia
+Ampang,Asia
+Bangi,Asia
+Cyberjaya,Asia
+Dengkil,Asia
+Kajang,Asia
+Klang,Asia
+Petaling Jaya,Asia
+Puchong,Asia
+Selayang Jaya,Asia
+Serdang,Asia
+Shah Alam,Asia
+Subang Jaya,Asia
+Ulu Kelang,Asia
+Dungun,Asia
+Jerteh,Asia
+Kemaman,Asia
+Kuala Terengganu,Asia
+Cheras,Asia
+Kuala Lumpur,Asia
+Sentul,Asia
+Beaufort,Asia
+Kota Kinabalu,Asia
+Kudat,Asia
+Labuan,Asia
+Nabawan,Asia
+Sandakan,Asia
+Tawau,Asia
 Male,Asia
 Bamako,Africa
 Tombouctou,Africa
@@ -5436,60 +5436,60 @@ Miraflores,South America
 Pucallpa,South America
 Iquitos,South America
 Piura,South America
-Butuan City,Southeast Asia
-Legaspi,Southeast Asia
-Batangas,Southeast Asia
-Tuguegarao City,Southeast Asia
-Naga City,Southeast Asia
-Roxas,Southeast Asia
-Cavite City,Southeast Asia
-Tagaytay,Southeast Asia
-Lapu-Lapu City,Southeast Asia
-Bacarra,Southeast Asia
-Canlubang,Southeast Asia
-Laguna,Southeast Asia
-San Pedro,Southeast Asia
-San Fernando,Southeast Asia
-Palo,Southeast Asia
-Tacloban City,Southeast Asia
-Puerto Galera,Southeast Asia
-Cagayan De Oro,Southeast Asia
-Dumaguete City,Southeast Asia
-Puerto Princesa,Southeast Asia
-Angeles City,Southeast Asia
-Alaminos,Southeast Asia
-Dagupan City,Southeast Asia
-Antipolo,Southeast Asia
-Cainta,Southeast Asia
-Muntinlupa,Southeast Asia
-Taytay,Southeast Asia
-San Juan,Southeast Asia
-Camiling,Southeast Asia
-Laoag,Southeast Asia
-San Pablo,Southeast Asia
-Kalibo,Southeast Asia
-Cagayan,Southeast Asia
-Baguio,Southeast Asia
-Cebu,Southeast Asia
-Davao,Southeast Asia
-Dipolog,Southeast Asia
-Iloilo,Southeast Asia
-Lipa City,Southeast Asia
-Las Pinas City,Southeast Asia
-Makati,Southeast Asia
-Malabon,Southeast Asia
-Mandaluyong City,Southeast Asia
-Manila,Southeast Asia
-Marikina,Southeast Asia
-Parañaque,Southeast Asia
-Pasay,Southeast Asia
-Pasig,Southeast Asia
-Pateros,Southeast Asia
-Quezon City,Southeast Asia
-Olongapo,Southeast Asia
-Quezon,Southeast Asia
-Zamboanga City,Southeast Asia
-Bacolod,Southeast Asia
+Butuan City,Asia
+Legaspi,Asia
+Batangas,Asia
+Tuguegarao City,Asia
+Naga City,Asia
+Roxas,Asia
+Cavite City,Asia
+Tagaytay,Asia
+Lapu-Lapu City,Asia
+Bacarra,Asia
+Canlubang,Asia
+Laguna,Asia
+San Pedro,Asia
+San Fernando,Asia
+Palo,Asia
+Tacloban City,Asia
+Puerto Galera,Asia
+Cagayan De Oro,Asia
+Dumaguete City,Asia
+Puerto Princesa,Asia
+Angeles City,Asia
+Alaminos,Asia
+Dagupan City,Asia
+Antipolo,Asia
+Cainta,Asia
+Muntinlupa,Asia
+Taytay,Asia
+San Juan,Asia
+Camiling,Asia
+Laoag,Asia
+San Pablo,Asia
+Kalibo,Asia
+Cagayan,Asia
+Baguio,Asia
+Cebu,Asia
+Davao,Asia
+Dipolog,Asia
+Iloilo,Asia
+Lipa City,Asia
+Las Pinas City,Asia
+Makati,Asia
+Malabon,Asia
+Mandaluyong City,Asia
+Manila,Asia
+Marikina,Asia
+Parañaque,Asia
+Pasay,Asia
+Pasig,Asia
+Pateros,Asia
+Quezon City,Asia
+Olongapo,Asia
+Quezon,Asia
+Zamboanga City,Asia
+Bacolod,Asia
 Boleslawiec,Europe
 Glogow,Europe
 Jelenia Gora,Europe
@@ -5790,23 +5790,23 @@ Victoria,Africa
 Anse aux Pins,Africa
 Bo,Africa
 Freetown,Africa
-Bedok,Southeast Asia
-Bishan,Southeast Asia
-Bukit Batok,Southeast Asia
-Choa Chu Kang,Southeast Asia
-Clementi,Southeast Asia
-Jurong,Southeast Asia
-Pasir Ris,Southeast Asia
-Paya Lebar,Southeast Asia
-Queenstown,Southeast Asia
-Raffles Park,Southeast Asia
-Sembawang,Southeast Asia
-Serangoon,Southeast Asia
-Singapore,Southeast Asia
-Tampines,Southeast Asia
-Toa Payoh,Southeast Asia
-Woodlands,Southeast Asia
-Yishun,Southeast Asia
+Bedok,Asia
+Bishan,Asia
+Bukit Batok,Asia
+Choa Chu Kang,Asia
+Clementi,Asia
+Jurong,Asia
+Pasir Ris,Asia
+Paya Lebar,Asia
+Queenstown,Asia
+Raffles Park,Asia
+Sembawang,Asia
+Serangoon,Asia
+Singapore,Asia
+Tampines,Asia
+Toa Payoh,Asia
+Woodlands,Asia
+Yishun,Asia
 Banska Bystrica,Europe
 Bratislava,Europe
 Kosice,Europe
@@ -6360,22 +6360,22 @@ Al Ladhiqiyah,Middle East
 Aleppo,Middle East
 Hims,Middle East
 Damascus,Middle East
-Chu-nan,Southeast Asia
-Hua-lien,Southeast Asia
-P'ing-tung,Southeast Asia
-Kaohsiung,Southeast Asia
-Kaohsiung County,Southeast Asia
-Kaohsiung Municipality,Southeast Asia
-Tainan,Southeast Asia
-Yung Kang City,Southeast Asia
-Hsin-chu,Southeast Asia
-Lung Tang,Southeast Asia
-Panchiao,Southeast Asia
-Taipei,Southeast Asia
-Chia-i Chia-I,Southeast Asia
-Puli,Southeast Asia
-T'ai-chung,Southeast Asia
-Taoyuan,Southeast Asia
+Chu-nan,Asia
+Hua-lien,Asia
+P'ing-tung,Asia
+Kaohsiung,Asia
+Kaohsiung County,Asia
+Kaohsiung Municipality,Asia
+Tainan,Asia
+Yung Kang City,Asia
+Hsin-chu,Asia
+Lung Tang,Asia
+Panchiao,Asia
+Taipei,Asia
+Chia-i Chia-I,Asia
+Puli,Asia
+T'ai-chung,Asia
+Taoyuan,Asia
 Dushanbe,Asia
 Khujand,Asia
 Arusha,Africa
@@ -6388,28 +6388,28 @@ Bagamoyo,Africa
 Kilimanjaro,Africa
 Morogoro,Africa
 Zanzibar,Africa
-Laem Chabang,Southeast Asia
-Chiang Mai,Southeast Asia
-Phitsanulok,Southeast Asia
-Phetchabun,Southeast Asia
-Udon Thani,Southeast Asia
-Nakhon Ratchasima,Southeast Asia
-Nana Plaza,Southeast Asia
-Non Buri,Southeast Asia
-Bangkok,Southeast Asia
-Samudh Prakarn,Southeast Asia
-Klong Luang Peng,Southeast Asia
-Chon Buri,Southeast Asia
-Chonburi,Southeast Asia
-Pattaya,Southeast Asia
-Banchang,Southeast Asia
-Rayong,Southeast Asia
-Trat,Southeast Asia
-Nakorn Panom,Southeast Asia
-Cha-am,Southeast Asia
-Koh Samui,Southeast Asia
-Surat Thani,Southeast Asia
-Phuket,Southeast Asia
+Laem Chabang,Asia
+Chiang Mai,Asia
+Phitsanulok,Asia
+Phetchabun,Asia
+Udon Thani,Asia
+Nakhon Ratchasima,Asia
+Nana Plaza,Asia
+Non Buri,Asia
+Bangkok,Asia
+Samudh Prakarn,Asia
+Klong Luang Peng,Asia
+Chon Buri,Asia
+Chonburi,Asia
+Pattaya,Asia
+Banchang,Asia
+Rayong,Asia
+Trat,Asia
+Nakorn Panom,Asia
+Cha-am,Asia
+Koh Samui,Asia
+Surat Thani,Asia
+Phuket,Asia
 Kara,Africa
 Lome,Africa
 Atakpame,Africa
@@ -37169,13 +37169,13 @@ La Guaira,South America
 Macuto,South America
 Maiquetia,South America
 Piedra Azul,South America
-Da Lat,Southeast Asia
-Da Nang,Southeast Asia
-Ha Long,Southeast Asia
-Hanoi,Southeast Asia
-Ho Chi Minh City,Southeast Asia
-Bien Hoa,Southeast Asia
-Hue,Southeast Asia
+Da Lat,Asia
+Da Nang,Asia
+Ha Long,Asia
+Hanoi,Asia
+Ho Chi Minh City,Asia
+Bien Hoa,Asia
+Hue,Asia
 Charlotte Amalie,Central America and the Caribbean
 Cruz Bay,Central America and the Caribbean
 Christiansted,Central America and the Caribbean
