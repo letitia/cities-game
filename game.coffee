@@ -28,41 +28,69 @@ window.handleInputKeyup = (evt) ->
 	handleSubmit() if evt.keyCode is 13
 
 window.handleSubmit = () ->
-	window.setBusy()
+	#setBusy()
 	cityname = $.trim($('input[name=city_name]').val())
 	answerIsValid = cityname and currLetterStartsCityname(cityname) and isValidCity(cityname) and currCityNeverUsed()
-	window.setNotBusy()
+	#setNotBusy()
 	updateProgramAndDisplay(answerIsValid)
 	handleComputerTurn()
 	
-window.currLetterStartsCityname = (city) ->
+currLetterStartsCityname = (city) ->
 	if curr_letter
 		if not (city[0].toUpperCase() is curr_letter)
 			window.error = "The first letter of your city must start with " + curr_letter
 			return false
 	true
 		
-window.isValidCity = (input_city) ->
-	first_letter = (input_city[0]).toUpperCase()
-	city = first_letter + input_city.substr(1)
+isValidCity = (input_cityname) ->
+	first_letter = (input_cityname[0]).toUpperCase()
+	city = first_letter + input_cityname.substr(1)
 
 	if not (first_letter of cities)
 		window.error = "The first letter of your city is not in the English alphabet."
 		return false
 
-	city_list_starting_with = cities[first_letter]
-	for tuple in city_list_starting_with
-		list_city = tuple[0]
-		country_id = tuple[1]
-		if wordsMatch(city.toLowerCase(), list_city.toLowerCase())
-			$('.status').text "You got it!  " + list_city + " is in " + countries[country_id]
-			window.curr_city = [list_city, country_id]
-			$('input[name=city_name]').val('')
+	city_dict_starting_with = cities[first_letter]
+
+	if input_cityname of city_dict_starting_with
+		acknowledgeInputCity(input_cityname, city_dict_starting_with)
+		return true
+
+	close_names = generateCloseWordList(input_cityname)
+	for name in close_names
+		if name of city_dict_starting_with
+			acknowledgeInputCity(name, city_dict_starting_with)
 			return true
-	window.error = input_city + " is NOT a valid city."
+	window.error = input_cityname + " is NOT a valid city."
 	false
 
-window.currCityNeverUsed = () ->
+acknowledgeInputCity = (name, dict) ->
+	country_id = dict[name][0]	#FIXME:  for now, only take first country in list
+	display_name = name.toProperCase()
+	window.curr_city = [display_name, country_id]
+	$('input[name=city_name]').val('')
+
+generateCloseWordList = (word) ->
+	word = word.toLowerCase()
+	edit_dist = getEditDistance(word)
+	
+	wordlist = []
+	generateEditDistanceList(word, edit_dist, wordlist)
+	wordlist
+
+generateEditDistanceList = (word, edit_dist, wordlist) ->
+	if edit_dist is 0 then return
+
+	# replace every letter except first letter
+	for letter, i in word when i > 0
+		if letter of special_chars
+			replacements = special_chars[letter]
+			for rep in replacements
+				replaced = word[...i] + rep + word[i+1...]
+				wordlist.push(replaced)
+				generateEditDistanceList(replaced, edit_dist - 1, wordlist)
+
+currCityNeverUsed = () ->
 	unused = true
 	curr_cityname = curr_city[0]
 	if curr_cityname in used_citynames
@@ -70,42 +98,17 @@ window.currCityNeverUsed = () ->
 		unused = false
 	unused
 
-window.wordsMatch = (word1, word2) ->
-	edit_dist = getEditDistance word1
-	wordsMatchWithinEditDistance(word1, word2, edit_dist)
-
-window.getEditDistance = (word) ->
+getEditDistance = (word) ->
 	len = word.length
 	if len < 3  then return 1
 	if len < 11 then return 2
 	if len < 15 then return 3
 	4
-	
-window.wordsMatchWithinEditDistance = (shorterWord, longerWord, edit_dist) ->
-	if shorterWord is longerWord
-		return true
 
-	if edit_dist is 0
-		return false
-
-	if Math.abs(longerWord.length - shorterWord.length) > edit_dist
-		return false
-
-	wordsMatch = false
-	
-	#  test every letter except first letter
-	for letter, i in shorterWord when i > 0
-		if letter of special_chars
-			replacements = special_chars[letter]
-			for rep in replacements
-				replaced = shorterWord[...i] + rep + shorterWord[i+1...]
-				return true if wordsMatchWithinEditDistance replaced, longerWord, edit_dist-1
-
-	wordsMatch
-
-window.updateProgramAndDisplay = (cityIsValid) ->
+updateProgramAndDisplay = (cityIsValid) ->
 	if cityIsValid
 		curr_cityname = curr_city[0]; curr_country = curr_city[1]
+		$('.status').text "You got it!  " + curr_cityname + " is in " + countries[curr_country]
 		window.curr_city = []
 		used_citynames.push curr_cityname
 		incrementKeyFrequencyInMap(curr_country, used_countries)
@@ -118,33 +121,33 @@ window.updateProgramAndDisplay = (cityIsValid) ->
 	printCountries()
 	return
 
-window.printCountries = () ->
+printCountries = () ->
 	result = ""
 	for id, count of used_countries
 		result += countries[id] + ": " + count + "<br />"
 	$('.countries').html result
 
-window.handleComputerTurn = (valid) ->
+handleComputerTurn = (valid) ->
 	setTimeout computerTurn, 1000 if valid
 	
 
-window.computerTurn = () ->
+computerTurn = () ->
 	$('.status').text "Computer's turn..."
 
-window.handleErrors = () ->
+handleErrors = () ->
 	$('.status').text error
 
-window.incrementKeyFrequencyInMap = (key, map) ->
+incrementKeyFrequencyInMap = (key, map) ->
 	if not (key of map) then map[key] = 0
 	map[key] += 1
 
-window.checkBusyStatus = () ->
+checkBusyStatus = () ->
 	setInterval (() -> if busy then $('#spinner').show() else $('#spinner').hide()), 10
 
-window.setBusy = () ->
+setBusy = () ->
 	$('#spinner').show()
 
-window.setNotBusy = () ->
+setNotBusy = () ->
 	$('#spinner').hide()
 
 
@@ -171,32 +174,40 @@ window.runTestCases = () ->
 	testCityIsValid('Port au prince')
 	
 
-window.testWordsMatch = (input, city, edit_dist) ->
+testWordsMatch = (input, city, edit_dist) ->
 	passed = wordsMatchWithinEditDistance input, city, edit_dist
 	$result = $('<div />').text "Testing that " + input + " and " + city + " match within " + edit_dist + " ... " + resultText(passed)
 	$result.css('color', resultColor(passed))
 	$('.testresults').append $result
 
-window.testWordsDontMatch = (input, city, edit_dist) ->
+testWordsDontMatch = (input, city, edit_dist) ->
 	passed = not wordsMatchWithinEditDistance input, city, edit_dist
 	$result = $('<div />').text "Testing that " + input + " and " + city + " do NOT match within " + edit_dist + " ... " + resultText(passed)
 	$result.css('color', resultColor(passed))
 	$('.testresults').append $result
 
-window.testCityIsValid = (cityname) ->
+testCityIsValid = (cityname) ->
 	passed = isValidCity cityname
 	$result = $('<div />').text "Testing that " + cityname + " is valid ... " + resultText(passed)
 	$result.css('color', resultColor(passed))
 	$('.testresults').append $result
 
-window.testCityIsInvalid = (cityname) ->
+testCityIsInvalid = (cityname) ->
 	passed = not isValidCity cityname
 	$result = $('<div />').text "Testing that " + cityname + " is NOT valid ... " + resultText(passed)
 	$result.css('color', resultColor(passed))
 	$('.testresults').append $result
 
-window.resultText = (passed) ->
+resultText = (passed) ->
 	if passed then 'Passed' else 'Failed'
 	
-window.resultColor = (passed) ->
+resultColor = (passed) ->
 	if passed then 'green' else 'red'
+
+
+
+# Utilities
+
+String.prototype.toProperCase = () ->
+    this.replace /\w\S*/g, (txt) -> txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+
