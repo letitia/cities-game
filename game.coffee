@@ -1,27 +1,27 @@
-window.curr_letter = ""
-window.curr_city = []
-window.used_citynames = []
-window.used_countries = {}
-window.error = ""
-window.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-window.special_chars = {
-		"a": ['\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xc2',],	#['ä', 'â', 'å', 'ã', 'á', 'à', 'Â'],
-		"e": ['\xe8', '\xe9', '\xea'],									#["è", "é", "ê""],
-		"i": ['\xed'],													#['í'],
-		"o": ['\xf3', '\xf4', '\xf5', '\xf6', '\xf8'],				 	#["ó", "ô", "õ", "ö", "ø"],
-		"u": ['\xfa', '\xfc']											#['ú', 'ü'],
-		"c": ['\xe7'],													#['ç'],
-		"d": ['\xf0'],													#["ð"]
-		"n": ['\xf1'],													#['ñ'],
-		"s": ['\x9a'],													#['š'],
-		"ss": ['\xdf'],													#['ß'],
-		".": [" ", "-", ";", ""],
-		" ": ["'", "-", ";", ""],
-		"-": [" ", "'", ";", ""],
-		"'": [" ", "-", ";", ""],
-		";": [" ", "'", "-", ""]
-	}
-window.busy = false
+GAME.curr_letter = ""
+GAME.curr_city = []
+GAME.used_citynames = []
+GAME.used_countries = {}
+GAME.error = ""
+GAME.alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+GAME.special_chars = {
+        "a": ['\xe0', '\xe1', '\xe2', '\xe3', '\xe4', '\xe5', '\xc2',], #['ä', 'â', 'å', 'ã', 'á', 'à', 'Â'],
+        "e": ['\xe8', '\xe9', '\xea'],                                  #["è", "é", "ê""],
+        "i": ['\xed'],                                                  #['í'],
+        "o": ['\xf3', '\xf4', '\xf5', '\xf6', '\xf8'],                  #["ó", "ô", "õ", "ö", "ø"],
+        "u": ['\xfa', '\xfc']                                           #['ú', 'ü'],
+        "c": ['\xe7'],                                                  #['ç'],
+        "d": ['\xf0'],                                                  #["ð"]
+        "n": ['\xf1'],                                                  #['ñ'],
+        "s": ['\x9a'],                                                  #['š'],
+        "ss": ['\xdf'],                                                 #['ß'],
+        ".": [" ", "-", ";", ""],
+        " ": ["'", "-", ";", ""],
+        "-": [" ", "'", ";", ""],
+        "'": [" ", "-", ";", ""],
+        ";": [" ", "'", "-", ""]
+    }
+GAME.busy = false
 
 
 window.handleInputKeyup = (evt) ->
@@ -38,7 +38,7 @@ window.handleSubmit = () ->
 currLetterStartsCityname = (city) ->
 	if curr_letter
 		if not (city[0].toUpperCase() is curr_letter)
-			window.error = "The first letter of your city must start with " + curr_letter
+			GAME.error = "The first letter of your city must start with " + curr_letter
 			return false
 	true
 		
@@ -48,7 +48,7 @@ isValidCity = (input_cityname) ->
 	city = first_letter + input_cityname.substr(1)
 
 	if not (first_letter of cities)
-		window.error = "The first letter of your city is not in the English alphabet."
+		GAME.error = "The first letter of your city is not in the English alphabet."
 		return false
 
 	city_dict_starting_with = cities[first_letter]
@@ -62,13 +62,13 @@ isValidCity = (input_cityname) ->
 		if name of city_dict_starting_with
 			acknowledgeInputCity(name, city_dict_starting_with)
 			return true
-	window.error = input_cityname + " is NOT a valid city."
+	GAME.error = input_cityname + " is NOT a valid city."
 	false
 
 acknowledgeInputCity = (name, dict) ->
 	country_id = dict[name][0]	#FIXME:  for now, only take first country in list
 	display_name = name.toProperCase()
-	window.curr_city = [display_name, country_id]
+	GAME.curr_city = [display_name, country_id]
 	$('input[name=city_name]').val('')
 
 generateCloseWordList = (word) ->
@@ -95,7 +95,7 @@ currCityNeverUsed = () ->
 	unused = true
 	curr_cityname = curr_city[0]
 	if curr_cityname in used_citynames
-		window.error = "You've used that city already!"
+		GAME.error = "You've used that city already!"
 		unused = false
 	unused
 
@@ -120,13 +120,13 @@ updateWithNewCity = ->
 	curr_cityname = curr_city[0]
 	curr_country = curr_city[1]
 	$('.status').text "You got it!  #{curr_cityname} is in #{countries[curr_country]}"
-	window.curr_city = []
+	GAME.curr_city = []
 	used_citynames.push curr_cityname
 	incrementKeyFrequencyInMap(curr_country, used_countries)
 
 	addCityTile(curr_cityname)
 
-	window.curr_letter = curr_cityname[-1..].toUpperCase()
+	GAME.curr_letter = curr_cityname[-1..].toUpperCase()
 	$('.currletter').text curr_letter
 
 addCityTile = (cityname) ->
@@ -156,29 +156,31 @@ handleComputerTurn = (valid) ->
 	setTimeout computerTurn, 1000 if valid
 	
 
-computerTurn = () ->
+computerTurn = ->
 	$('.status').text "Computer's turn..."
 
-handleErrors = () ->
+handleErrors = ->
 	$('.status').text error
 
 incrementKeyFrequencyInMap = (key, map) ->
 	if not (key of map) then map[key] = 0
 	map[key] += 1
 
-checkBusyStatus = () ->
+checkBusyStatus = ->
 	setInterval (() -> if busy then $('#spinner').show() else $('#spinner').hide()), 10
 
-setBusy = () ->
+setBusy = ->
 	$('#spinner').show()
 
-setNotBusy = () ->
+setNotBusy = ->
 	$('#spinner').hide()
 
 
 #checkBusyStatus();
 
 
+
+#  T E S T S
 
 # This takes a couple of minutes, or longer if you uncomment out the long cases
 window.runTestCases = () ->
