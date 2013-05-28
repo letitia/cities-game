@@ -43,6 +43,7 @@ currLetterStartsCityname = (city) ->
 	true
 		
 isValidCity = (input_cityname) ->
+	input_cityname = input_cityname.toLowerCase()
 	first_letter = (input_cityname[0]).toUpperCase()
 	city = first_letter + input_cityname.substr(1)
 
@@ -107,13 +108,7 @@ getEditDistance = (word) ->
 
 updateProgramAndDisplay = (cityIsValid) ->
 	if cityIsValid
-		curr_cityname = curr_city[0]; curr_country = curr_city[1]
-		$('.status').text "You got it!  " + curr_cityname + " is in " + countries[curr_country]
-		window.curr_city = []
-		used_citynames.push curr_cityname
-		incrementKeyFrequencyInMap(curr_country, used_countries)
-		window.curr_letter = curr_cityname[-1..].toUpperCase()
-		$('.currletter').text curr_letter
+		updateWithNewCity()
 	else
 		handleErrors()
 	$('.usedcities').text used_citynames
@@ -121,11 +116,41 @@ updateProgramAndDisplay = (cityIsValid) ->
 	printCountries()
 	return
 
+updateWithNewCity = ->
+	curr_cityname = curr_city[0]
+	curr_country = curr_city[1]
+	$('.status').text "You got it!  #{curr_cityname} is in #{countries[curr_country]}"
+	window.curr_city = []
+	used_citynames.push curr_cityname
+	incrementKeyFrequencyInMap(curr_country, used_countries)
+
+	addCityTile(curr_cityname)
+
+	window.curr_letter = curr_cityname[-1..].toUpperCase()
+	$('.currletter').text curr_letter
+
+addCityTile = (cityname) ->
+	tile = $('<div class="city" />')
+	tile.text cityname
+
+	# get image
+	$.get "http://en.wikipedia.org/w/api.php?action=query&titles=#{formatNameForWikipedia(cityname)}&format=json&prop=images&imlimit=1"
+
+	# get wiki text
+	$.get "http://en.wikipedia.org/w/api.php?action=query&titles=#{formatNameForWikipedia(cityname)}&format=json&prop=revisions&rvprop=content"
+	
+	$('#content').prepend tile
+
 printCountries = () ->
 	result = ""
 	for id, count of used_countries
-		result += countries[id] + ": " + count + "<br />"
+		result += "#{countries[id]}: #{count}<br />"
 	$('.countries').html result
+
+formatNameForWikipedia = (cityname) ->
+	# upper case and escape everything with underscore,
+	# e.g. San_Francisco, Port_Au_Prince, Sault_Ste_Marie, Sault_Sainte_Marie
+
 
 handleComputerTurn = (valid) ->
 	setTimeout computerTurn, 1000 if valid
@@ -157,11 +182,11 @@ setNotBusy = () ->
 
 # This takes a couple of minutes, or longer if you uncomment out the long cases
 window.runTestCases = () ->
-	testWordsDontMatch('LA', 'Lazdijai', 2)
+	"""testWordsDontMatch('LA', 'Lazdijai', 2)
 	testWordsMatch('Claremont', 'Claremont', 2)
 	testWordsDontMatch('Clearmont', 'Claremont', 2)
 	testWordsDontMatch('Upton', 'Unity', 2)
-	
+	"""
 	
 	$('.testresults').append $('<br />')
 	testCityIsValid('Stanford')
