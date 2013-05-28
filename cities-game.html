@@ -4,6 +4,7 @@
 	<script src="countries.js"></script>
 	<script src="cities.js"></script>
 	<script src="game.js"></script>
+	<script src="tests.js"></script>
 	<link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,8 +13,8 @@
 	<div id="sidebar">
 		<h1>Cities Game</h1>
 		<h3 class="instructions">Enter a city that starts with <span class="currletter">any letter</span>:</h3>
-		<input type="text" name="city_name" onkeyup="handleInputKeyup(event);">
-		<button class="submit" onclick="handleSubmit();">Enter</button><img id="spinner" src="spinner.gif" style="display:none;" />
+		<input type="text" name="city_name" onkeyup="handle_input_keyup(event);">
+		<button class="submit" onclick="handle_submit();">Enter</button><img id="spinner" src="spinner.gif" style="display:none;" />
 		<p class="status"></p>
 
 		<p>Cities:  <span class="usedcities"></span></p>
