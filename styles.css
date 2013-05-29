@@ -19,18 +19,22 @@ h1, h2, h3, h4, h5 { font-weight: normal; }
 	width: 280px;
 	height: 100%;
 }
-#content {
+#history {
 	margin-left: 290px;
 	height: 100%;
 	background-color: #FFA07A;
 	padding: 30px;
 }
 
-#content .city {
+#history .city {
 	width: 200px;
 	float: left;
 	background-color: blue;
 	height: 100%;
+}
+
+#history .city img {
+	max-width: 200px;
 }
 
 .instructions {

@@ -26,18 +26,18 @@ GAME.busy = false
 
 
 window.handle_input_keyup = (evt) ->
-	handle_submit() if evt.keyCode is 13
+	if evt.keyCode is 13
+		handle_submit()
 
-window.handle_submit = () ->
-	cityname = $.trim($('input[name=city_name]').val())
-	answer_is_valid = cityname and curr_letter_starts_cityname(cityname) and is_valid_city(cityname) and curr_city_never_used()
+window.handle_submit = ->
+	city = $.trim($('input[name=city_name]').val())
+	answer_is_valid = city and curr_letter_starts_city(city) and is_valid_city(city) and curr_city_never_used()
 	update_program_and_display(answer_is_valid)
-	#handle_computer_turn()
 	
-curr_letter_starts_cityname = (city) ->
+curr_letter_starts_city = (city) ->
 	if GAME.curr_letter
 		if not (city[0].toUpperCase() is GAME.curr_letter)
-			GAME.error = "The first letter of your city must start with " + GAME.curr_letter
+			GAME.error = "The first letter of your city must start with #{GAME.curr_letter}"
 			return false
 	true
 		
@@ -129,16 +129,58 @@ update_with_new_city = ->
 	$('.currletter').text GAME.curr_letter
 
 add_city_tile = (cityname) ->
-	tile = $('<div class="city" />')
-	tile.text cityname
+	$tile = $('<div class="city" />')		#TODO  Use template?
+	$tile.text cityname
+	wikipedia_name = wikipedia_format(cityname)
+	wiki_api_url = "http://en.wikipedia.org/w/api.php?action=query&format=json"
 
-	# get image
-	$.get "http://en.wikipedia.org/w/api.php?action=query&titles=#{format_name_for_wikipedia(cityname)}&format=json&prop=images&imlimit=1"
+
+	# get image from pageimages first, but if don't have it 
+	# then call allimages
+	image_rendered = $.get "#{wiki_api_url}&prop=pageimages\
+	&titles=#{wikipedia_name}"
+	, (data) ->
+		imagename = ""
+		for id, page of data.query.pages
+			if page.hasOwnProperty('pageimage')
+				imagename = page.pageimage
+				$.get "#{wiki_api_url}&prop=imageinfo\
+				&iiprop=url&titles=Image:#{imagename}"
+				, (imgdata) ->
+					for key, page of imgdata.query.pages
+						render_tile_image(page.imageinfo[0].url, $tile)
+						break
+				break
+		if not imagename
+			$.get "#{wiki_api_url}&list=allimages&aisort=name\
+			&aifrom=#{wikipedia_name}&ailimit=1"
+			, (data) ->
+				if data.query.allimages.length
+					render_tile_image(data.query.allimages[0].url, $tile)
+	.error (data) ->
+		console.log "Error fetching image from Wikipedia: " + data
+		# cannot get Wikipedia image, try allimages
+		# $.get "#{wiki_api_url}?action=query&format=json&list=allimages\
+		# &aifrom=#{wikipedia_name}&aisort=name&aiprop=url&aidir=older&ailimit=1"
+
+
+	
+
+
+
 
 	# get wiki text
-	$.get "http://en.wikipedia.org/w/api.php?action=query&titles=#{format_name_for_wikipedia(cityname)}&format=json&prop=revisions&rvprop=content"
+	# text_rendered = $.get "#{wiki_api_url}&titles=#{wikipedia_name}\
+	# &prop=revisions&rvprop=content"
 	
-	$('#content').prepend tile
+	$.when(image_rendered).then (data) ->
+		$('#history').prepend $tile
+	, (error) ->
+		console.log error + " in add_city_tile"
+
+render_tile_image = (image_url, $tile) ->
+	$("<img src=#{image_url} />").insertAfter($tile.find(".title"))
+
 
 print_countries = ->
 	result = ""
@@ -146,17 +188,13 @@ print_countries = ->
 		result += "#{countries[id]}: #{count}<br />"
 	$('.countries').html result
 
-format_name_for_wikipedia = (cityname) ->
-	# upper case and escape everything with underscore,
-	# e.g. San_Francisco, Port_Au_Prince, Sault_Ste_Marie, Sault_Sainte_Marie
-
-
-handle_computer_turn = (valid) ->
-	setTimeout computerTurn, 1000 if valid
+#  title case and escape everything with underscore,
+#  e.g. San_Francisco, Port_Au_Prince, Sault_Ste_Marie, Sault_Sainte_Marie
+wikipedia_format = (cityname) ->
+	words = cityname.split(/[ -]/)
+	titlecased = (word.toProperCase() for word in words)
+	return titlecased.join('_')
 	
-
-computerTurn = ->
-	$('.status').text "Computer's turn..."
 
 handle_errors = ->
 	$('.status').text GAME.error
@@ -172,6 +210,7 @@ increment_key_frequency_in_map = (key, map) ->
 
 # Utilities
 
-String.prototype.toProperCase = () ->
-    this.replace /\w\S*/g, (txt) -> txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+String.prototype.toProperCase = ->
+    this.replace /\w\S*/g, (txt) ->
+    	txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
